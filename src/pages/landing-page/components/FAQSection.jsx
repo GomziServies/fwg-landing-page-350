@@ -4,23 +4,69 @@ import Icon from '../../../components/AppIcon';
 const FAQSection = () => {
   const [openFAQ, setOpenFAQ] = useState(0);
 
-  const faqs = [
-    {
-      id: 1,
-      question: "Are PT sessions live or recorded?",
-      answer: `Daily live sessions (recorded backup available).`
-    },
-    {
-      id: 2,
-      question: "Do I need gym equipment?",
-      answer: `No, all workouts can be done at home.`
-    },
-    {
-      id: 3,
-      question: "How do I join sessions?",
-      answer: `Zoom/Google Meet link sent daily via WhatsApp/email.`
-    }
-  ];
+ const faqs = [
+  {
+    id: 1,
+    question: "What is included in the ₹349/month program?",
+    answer: `The program includes a complete online transformation plan with personalized workouts, nutrition guidance, progress tracking, and access to expert support.`
+  },
+  {
+    id: 2,
+    question: "Do I need any special equipment for the workouts?",
+    answer: `No, most workouts are designed for home use with minimal or no equipment. If equipment like dumbbells or resistance bands are required, alternatives are suggested.`
+  },
+  {
+    id: 3,
+    question: "Can I join if I am a beginner?",
+    answer: `Absolutely! The program is suitable for all levels, from beginners to advanced participants. Workouts and diet plans are tailored to your current fitness level.`
+  },
+  {
+    id: 4,
+    question: "How will I access the program?",
+    answer: `You’ll receive access through our online platform. Workouts, diet charts, and resources are available in video, PDF, and text formats.`
+  },
+  {
+    id: 5,
+    question: "Do I need to follow the program at a specific time?",
+    answer: `No, you can follow the program at your own pace. However, consistency is key to achieving the best results.`
+  },
+  {
+    id: 6,
+    question: "Will there be live sessions or just recorded content?",
+    answer: `The program includes both recorded content and occasional live Q&A sessions to address your doubts and track progress.`
+  },
+  {
+    id: 7,
+    question: "What kind of support can I get from your side?",
+    answer: `You can reach out for guidance on workouts, nutrition, or troubleshooting via chat or email support. Our team is available to help you stay on track.`
+  },
+  {
+    id: 8,
+    question: "Is this program suitable if I have health issues or injuries?",
+    answer: `If you have specific health concerns, it’s recommended to consult your doctor before starting. Modifications can be suggested based on your condition.`
+  },
+  {
+    id: 9,
+    question: "How soon can I expect results?",
+    answer: `Results vary depending on your starting point, consistency, and effort. Most participants notice improvements in strength, energy, and fitness within 4–6 weeks.`
+  },
+  {
+    id: 10,
+    question: "Are PT sessions live or recorded?",
+    answer: `Daily live sessions (recorded backup available).`
+  },
+  {
+    id: 11,
+    question: "Do I need gym equipment?",
+    answer: `No, all workouts can be done at home.`
+  },
+  {
+    id: 12,
+    question: "How do I join sessions?",
+    answer: `Zoom/Google Meet link sent daily via WhatsApp/email.`
+  }
+];
+
 
   const toggleFAQ = (id) => {
     setOpenFAQ(openFAQ === id ? null : id);

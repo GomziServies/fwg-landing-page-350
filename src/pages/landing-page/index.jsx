@@ -26,7 +26,7 @@ const LandingPage = () => {
         <FAQSection />
         <BookingForms />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

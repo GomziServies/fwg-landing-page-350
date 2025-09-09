@@ -12,7 +12,11 @@ const Input = React.forwardRef(({
     ...props
 }, ref) => {
     // Generate unique ID if not provided
-    const inputId = id || `input-${Math.random()?.toString(36)?.substr(2, 9)}`;
+    const inputId = id || React.useId();
+    const inputRef = React.useRef(null);
+
+    // Merge refs to handle both forwarded ref and local ref
+    React.useImperativeHandle(ref, () => inputRef.current);
 
     // Base input classes
     const baseInputClasses = "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50";
@@ -72,7 +76,7 @@ const Input = React.forwardRef(({
                     error && "border-destructive focus-visible:ring-destructive",
                     className
                 )}
-                ref={ref}
+                ref={inputRef}
                 id={inputId}
                 {...props}
             />

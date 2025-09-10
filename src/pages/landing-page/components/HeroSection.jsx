@@ -76,12 +76,25 @@ const HeroSection = () => {
         },
     ];
 
+    const [isPaused, setIsPaused] = useState(false);
+
     useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % transformations?.length);
-        }, 4000);
-        return () => clearInterval(timer);
-    }, []);
+        if (!isPaused) {
+            const timer = setInterval(() => {
+                setCurrentSlide((prev) => (prev + 1) % transformations?.length);
+            }, 4000);
+            return () => clearInterval(timer);
+        }
+    }, [isPaused]);
+
+    // Pause carousel when modal is open
+    useEffect(() => {
+        if (isModalOpen) {
+            setIsPaused(true);
+        } else {
+            setIsPaused(false);
+        }
+    }, [isModalOpen]);
 
     const validateForm = () => {
         if (
@@ -169,10 +182,17 @@ const HeroSection = () => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+        // Pause carousel while typing
+        setIsPaused(true);
         setUserDetails((prev) => ({
             ...prev,
             [name]: value,
         }));
+        // Resume carousel after 10 seconds of no typing
+        clearTimeout(window.carouselResumeTimer);
+        window.carouselResumeTimer = setTimeout(() => {
+            if (!isModalOpen) setIsPaused(false);
+        }, 10000);
     };
 
     const handleBookDemo = () => {
@@ -189,18 +209,18 @@ const HeroSection = () => {
                 />
             </div>
             <section className="bg-gradient-to-br from-white via-gray-50 to-green-50 flex items-center">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 py-5">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 lg:py-20">
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                        {/* Left Side - Transformation Carousel */}
+                        {/* Left Side - Transformation Carousel */ }
 
-                        {/* Right Side - Hero Content */}
+                        {/* Right Side - Hero Content */ }
 
                         <div className="text-center lg:text-left">
                             <div className="mb-6">
                                 <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-6">
                                     Daily Live Personal Training at Just
                                     <span className="text-primary">
-                                        {" "}
+                                        { " " }
                                         ₹349/Month 🚀
                                     </span>
                                 </h1>
@@ -215,7 +235,7 @@ const HeroSection = () => {
               flexible time zones, and coaching that understands your lifestyle abroad.
             </p> */}
 
-                            {/* Key Benefits */}
+                            {/* Key Benefits */ }
                             <div className="gap-4 mb-8">
                                 <div className="flex items-center space-x-3 my-3">
                                     <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center">
@@ -240,12 +260,12 @@ const HeroSection = () => {
                                 </div>
                             </div>
 
-                            {/* CTA Buttons */}
+                            {/* CTA Buttons */ }
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                                 <Button
                                     variant="default"
                                     size="lg"
-                                    onClick={handleBookDemo}
+                                    onClick={ handleBookDemo }
                                     iconPosition="left"
                                     className="text-lg px-8 py-4"
                                 >
@@ -253,7 +273,7 @@ const HeroSection = () => {
                                 </Button>
                             </div>
 
-                            {/* Trust Indicators */}
+                            {/* Trust Indicators */ }
                             <div className="flex items-center justify-center lg:justify-start space-x-6 mt-8 text-sm text-muted-foreground">
                                 <div className="flex items-center space-x-2">
                                     <span className="text-primary">
@@ -272,16 +292,15 @@ const HeroSection = () => {
                                 <div className="relative overflow-hidden rounded-xl">
                                     <div
                                         className="flex transition-transform duration-500 ease-in-out"
-                                        style={{
-                                            transform: `translateX(-${
-                                                currentSlide * 100
-                                            }%)`,
-                                        }}
+                                        style={ {
+                                            transform: `translateX(-${currentSlide * 100
+                                                }%)`,
+                                        } }
                                     >
-                                        {transformations?.map(
+                                        { transformations?.map(
                                             (transformation) => (
                                                 <div
-                                                    key={transformation?.id}
+                                                    key={ transformation?.id }
                                                     className="w-full flex-shrink-0"
                                                 >
                                                     <div className="gap-4">
@@ -291,7 +310,7 @@ const HeroSection = () => {
                                                                     src={
                                                                         transformation?.before
                                                                     }
-                                                                    alt={`${transformation?.name} before transformation`}
+                                                                    alt={ `${transformation?.name} before transformation` }
                                                                     className="w-full h-full object-cover"
                                                                 />
                                                             </div>
@@ -299,25 +318,27 @@ const HeroSection = () => {
                                                     </div>
                                                 </div>
                                             )
-                                        )}
+                                        ) }
                                     </div>
                                 </div>
 
-                                {/* Carousel Indicators */}
+                                {/* Carousel Indicators */ }
                                 <div className="flex justify-center space-x-2 mt-6">
-                                    {transformations?.map((_, index) => (
+                                    { transformations?.map((_, index) => (
                                         <button
-                                            key={index}
-                                            onClick={() =>
-                                                setCurrentSlide(index)
-                                            }
-                                            className={`w-2 h-2 rounded-full transition-colors ${
-                                                index === currentSlide
+                                            key={ index }
+                                            onClick={ () => {
+                                                setCurrentSlide(index);
+                                                setIsPaused(true);
+                                                // Resume after 10 seconds of inactivity
+                                                setTimeout(() => setIsPaused(false), 10000);
+                                            } }
+                                            className={ `w-2 h-2 rounded-full transition-colors ${index === currentSlide
                                                     ? "bg-primary"
                                                     : "bg-gray-300"
-                                            }`}
+                                                }` }
                                         />
-                                    ))}
+                                    )) }
                                 </div>
                             </div>
                         </div>
@@ -326,12 +347,12 @@ const HeroSection = () => {
             </section>
 
             <Modal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
+                isOpen={ isModalOpen }
+                onClose={ () => setIsModalOpen(false) }
                 title="Start Your Fitness Journey"
             >
                 <div className="grid grid-cols-1  md:grid-cols-3 gap-6 items-start">
-                    {/* Left column - visual */}
+                    {/* Left column - visual */ }
                     <div className="md:col-span-1 flex flex-col items-center bg-gradient-to-b from-green-50 to-green-100 rounded-2xl p-6 shadow-sm">
                         <div className="bg-white rounded-full p-4 shadow-md">
                             <img
@@ -349,7 +370,7 @@ const HeroSection = () => {
                         </p>
                     </div>
 
-                    {/* Right column - form */}
+                    {/* Right column - form */ }
                     <div className="md:col-span-2 bg-white rounded-2xl shadow-md p-6">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
@@ -358,9 +379,9 @@ const HeroSection = () => {
                                 </label>
                                 <Input
                                     name="name"
-                                    defaultValue={userDetails.name}
-                                    onBlur={handleInputChange}
-                                    placeholder="John Doe"
+                                    defaultValue={ userDetails.name }
+                                    onBlur={ handleInputChange }
+                                    placeholder="Enter Your Name"
                                     className="h-11 px-3 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 />
                             </div>
@@ -372,9 +393,9 @@ const HeroSection = () => {
                                 <Input
                                     name="email"
                                     type="email"
-                                    defaultValue={userDetails.email}
-                                    onBlur={handleInputChange}
-                                    placeholder="john@example.com"
+                                    defaultValue={ userDetails.email }
+                                    onBlur={ handleInputChange }
+                                    placeholder="Enter Your Email"
                                     className="h-11 px-3 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 />
                             </div>
@@ -386,10 +407,10 @@ const HeroSection = () => {
                                 <Input
                                     name="mobile"
                                     type="tel"
-                                    defaultValue={userDetails.mobile}
-                                    onBlur={handleInputChange}
-                                    placeholder="9876543210"
-                                    maxLength={10}
+                                    defaultValue={ userDetails.mobile }
+                                    onBlur={ handleInputChange }
+                                    placeholder="Enter Your Mobile Number"
+                                    maxLength={ 10 }
                                     pattern="[0-9]*"
                                     inputMode="numeric"
                                     className="h-11 px-3 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500"
@@ -402,13 +423,13 @@ const HeroSection = () => {
                                 </label>
                                 <Select
                                     name="goal"
-                                    value={userDetails.goal}
-                                    onChange={(value) =>
+                                    value={ userDetails.goal }
+                                    onChange={ (value) =>
                                         handleInputChange({
                                             target: { name: "goal", value },
                                         })
                                     }
-                                    options={goals}
+                                    options={ goals }
                                     inputClassName="h-11 px-3 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 />
                             </div>
@@ -419,8 +440,8 @@ const HeroSection = () => {
                                 </label>
                                 <Select
                                     name="experience"
-                                    value={userDetails.experience}
-                                    onChange={(value) =>
+                                    value={ userDetails.experience }
+                                    onChange={ (value) =>
                                         handleInputChange({
                                             target: {
                                                 name: "experience",
@@ -428,7 +449,7 @@ const HeroSection = () => {
                                             },
                                         })
                                     }
-                                    options={experiences}
+                                    options={ experiences }
                                     inputClassName="h-11 px-3 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 />
                             </div>
@@ -439,8 +460,8 @@ const HeroSection = () => {
                                 </label>
                                 <Select
                                     name="preferredTimeSlot"
-                                    value={userDetails.preferredTimeSlot}
-                                    onChange={(value) =>
+                                    value={ userDetails.preferredTimeSlot }
+                                    onChange={ (value) =>
                                         handleInputChange({
                                             target: {
                                                 name: "preferredTimeSlot",
@@ -448,7 +469,7 @@ const HeroSection = () => {
                                             },
                                         })
                                     }
-                                    options={timeSlots}
+                                    options={ timeSlots }
                                     inputClassName="h-11 px-3 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 />
                             </div>
@@ -459,11 +480,11 @@ const HeroSection = () => {
                                 🔒 Secure payment • 30-day support
                             </p>
                             <Button
-                                onClick={handlePayment}
-                                disabled={loading}
+                                onClick={ handlePayment }
+                                disabled={ loading }
                                 className="px-6 py-2 rounded-xl bg-green-600 hover:bg-green-700 text-white font-medium shadow-md transition"
                             >
-                                {loading ? "Processing..." : "Pay ₹349 / month"}
+                                { loading ? "Processing..." : "Pay ₹349 / month" }
                             </Button>
                         </div>
                     </div>
@@ -471,8 +492,8 @@ const HeroSection = () => {
             </Modal>
 
             <Modal
-                isOpen={isThankYouModalOpen}
-                onClose={() => setIsThankYouModalOpen(false)}
+                isOpen={ isThankYouModalOpen }
+                onClose={ () => setIsThankYouModalOpen(false) }
                 title="Thank you!"
             >
                 <div className="flex flex-col items-center text-center gap-4">
@@ -498,7 +519,7 @@ const HeroSection = () => {
                         your first session and share onboarding details.
                     </p>
                     <div className="w-full flex justify-center">
-                        <Button onClick={() => setIsThankYouModalOpen(false)}>
+                        <Button onClick={ () => setIsThankYouModalOpen(false) }>
                             Close
                         </Button>
                     </div>

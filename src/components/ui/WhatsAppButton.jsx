@@ -3,7 +3,7 @@ import Icon from '../AppIcon';
 
 const WhatsAppButton = () => {
   const phoneNumber = '7482077091';
-  const message = encodeURIComponent('Hello! I would like to know more about FWG International.');
+  const message = encodeURIComponent('Hello, I am interested in learning more about the ₹349 body transformation offer. Could you please share the details?');
 
   const handleClick = () => {
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');

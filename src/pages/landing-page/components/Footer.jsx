@@ -6,7 +6,7 @@ const Footer = () => {
 
   const socialLinks = [
     { name: "Facebook", icon: "Facebook", href: "https://www.facebook.com/gajani2/" },
-    { name: "Instagram", icon: "Instagram", href: "https://www.instagram.com/gomzi_nutrition/?igsh=NTc4MTIwNjQ2YQ%3D%3D#" },
+    { name: "Instagram", icon: "Instagram", href: "https://www.instagram.com/fitnesswithgomzi/" },
     { name: "YouTube", icon: "Youtube", href: "https://www.youtube.com/channel/UCLyvtq55YZORdV-SN8OQSzQ" },
     { name: "LinkedIn", icon: "Linkedin", href: "https://www.linkedin.com/in/dt-gautam-jani-561a50161/" },
   ];
@@ -15,7 +15,7 @@ const Footer = () => {
     email: "fitnesswithgomzi@gmail.com",
     whatsapp: "+91 74820 77091",
     address:
-      "Abhushan Bungalows, 2, Char Rasta, near Alkapuri, Shraddha Society, Katargam, Surat, Gujarat 395008",
+      "2, Abhushan Bunglows, Near Alkapuri Char Rasta, Katargam, Surat-395004",
   };
 
   return (
@@ -27,7 +27,7 @@ const Footer = () => {
             <div className="flex items-center">
               <img
                 src="/assets/images/gomzi.webp"
-                alt="FWG International Logo"
+                alt="Fitness with gomzi"
                 className="h-16 w-auto rounded-lg p-2"
               />
             </div>
@@ -93,20 +93,6 @@ const Footer = () => {
                   <span>{contactInfo?.address}</span>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-700/50">
-          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            <p className="text-gray-400 text-sm">
-              © {currentYear} FWG International. All rights reserved.
-            </p>
-            <div className="flex items-center space-x-4 text-sm text-gray-400">
-              <a href="#" className="hover:text-primary transition-colors duration-300">Privacy Policy</a>
-              <span>•</span>
-              <a href="#" className="hover:text-primary transition-colors duration-300">Terms of Service</a>
             </div>
           </div>
         </div>

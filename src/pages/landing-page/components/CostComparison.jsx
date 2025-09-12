@@ -266,9 +266,7 @@ const CostComparison = () => {
         <div className='text-center mt-10'>
           <Button
             variant="default"
-            size="lg"
-            iconPosition="left"
-            className="text-lg bg-warning px-8"
+            className="text-lg bg-warning px-8 py-4"
           >
             Join FWG PT for Just ₹349/Month
           </Button>

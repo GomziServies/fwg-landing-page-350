@@ -228,12 +228,8 @@ const BookingForms = () => {
             </p>
 
             <Button
-              variant="default"
-              size="lg"
               onClick={handleOpenModal}
-              iconName="Calculator"
-              iconPosition="left"
-              className="text-lg px-8"
+              className="text-lg py-4"
             >
               Your Transformation Starts Today - Just ₹349/month
             </Button>

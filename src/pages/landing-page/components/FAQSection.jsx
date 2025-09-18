@@ -23,7 +23,7 @@ const FAQSection = () => {
   {
     id: 4,
     question: "How will I access the program?",
-    answer: `You’ll receive access through our online platform. Workouts, diet charts, and resources are available in video, PDF, and text formats.`
+    answer: `You'll receive access through our online platform. Workouts, diet charts, and resources are available in video, PDF, and text formats.`
   },
   {
     id: 5,
@@ -43,17 +43,17 @@ const FAQSection = () => {
   {
     id: 8,
     question: "Is this program suitable if I have health issues or injuries?",
-    answer: `If you have specific health concerns, it’s recommended to consult your doctor before starting. Modifications can be suggested based on your condition.`
+    answer: `If you have specific health concerns, it's recommended to consult your doctor before starting. Modifications can be suggested based on your condition.`
   },
   {
     id: 9,
     question: "How soon can I expect results?",
-    answer: `Results vary depending on your starting point, consistency, and effort. Most participants notice improvements in strength, energy, and fitness within 4–6 weeks.`
+    answer: `Results vary depending on your starting point, consistency, and effort. Most participants notice improvements in strength, energy, and fitness within 4-6 weeks.`
   },
   {
     id: 10,
-    question: "Are PT sessions live or recorded?",
-    answer: `Daily live sessions (recorded backup available).`
+    question: "Are the sessions live or recorded?",
+    answer: `Our weight loss program includes daily live sessions to keep you motivated and accountable. If you miss a session, don't worry — a recorded backup is always available so you can continue your journey without any breaks. `
   },
   {
     id: 11,

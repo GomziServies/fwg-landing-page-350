@@ -157,7 +157,7 @@ const ImpactMetrics = () => {
           </div>
           <div className="text-center my-3">
             <div className="text-2xl font-bold text-accent mb-2">Instant Access</div>
-            <div className="text-surface-foreground font-medium mb-1">Get your PT schedule + access to pre-recorded workout videos inside your account.</div>
+            <div className="text-surface-foreground font-medium mb-1">Get your weight loss schedule + access to pre-recorded fat-burning workout videos inside your account.</div>
           </div>
           <div className="text-center my-3">
             <div className="text-2xl font-bold text-blue-600  mb-2">Join Live Sessions</div>

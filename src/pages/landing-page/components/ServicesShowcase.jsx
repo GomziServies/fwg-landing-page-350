@@ -136,32 +136,40 @@ const ServicesShowcase = () => {
                   </div>
                   <div className="flex items-center space-x-3">
                     {/* <span className="text-red-500">❌</span> */}
-                    <span className="text-muted-foreground">Live Daily PT</span>
+                    <span className="text-muted-foreground">Daily Fat-Burning Workouts</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     {/* <span className="text-red-500">❌</span> */}
-                    <span className="text-muted-foreground">Form Correction</span>
+                    <span className="text-muted-foreground">Form Correction for Safety </span>
                   </div>
                   <div className="flex items-center space-x-3">
                     {/* <span className="text-red-500">❌</span> */}
-                    <span className="text-muted-foreground">Recorded Workouts</span>
+                    <span className="text-muted-foreground">Recorded Workouts Access </span>
                   </div>
                   <div className="flex items-center space-x-3">
                     {/* <span className="text-red-500">❌</span> */}
-                    <span className="text-muted-foreground">Community Access</span>
+                    <span className="text-muted-foreground">Community Support & Motivation </span>
                   </div>
                   <div className="flex items-center space-x-3">
                     {/* <span className="text-red-500">❌</span> */ }
-                    <span className="text-muted-foreground">Price</span>
+                    <span className="text-muted-foreground">Visible Results Guarantee </span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    {/* <span className="text-red-500">❌</span> */ }
+                    <span className="text-muted-foreground">Monthly Cost</span>
                   </div>
                 </div>
                 <div className="space-y-3 text-left">
                   <div className="space-y-4">
                     <div className="bg-primary/10 rounded-lg mb-3">
                       <div className="text-lg text-primary/80">
-                        <b>Local Gym PT(₹1500-3000)</b>
+                        <b>Local Gym Weight Loss Plan (₹1500-₹3000)</b>
                       </div>
                     </div>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <span className="text-red-500">❌</span>
+                    <span className="text-muted-foreground">No</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <span className="text-red-500">❌</span>
@@ -169,10 +177,6 @@ const ServicesShowcase = () => {
                   </div>
                   <div className="flex items-center space-x-3">
                     <span className="text-red-500">❌</span>
-                    <span className="text-muted-foreground">Rare</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="text-red-500">❌</span>
                     <span className="text-muted-foreground">No</span>
                   </div>
                   <div className="flex items-center space-x-3">
@@ -180,7 +184,11 @@ const ServicesShowcase = () => {
                     <span className="text-muted-foreground">No</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    {/* <span className="text-red-500">❌</span> */}
+                    <span className="text-red-500">❌</span>
+                    <span className="text-muted-foreground">Uncertain</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    {/* <span className="text-red-500">❌</span> */ }
                     <span className="text-muted-foreground">₹1500-₹3000</span>
                   </div>
                 </div>
@@ -188,13 +196,17 @@ const ServicesShowcase = () => {
                   <div className="space-y-4">
                     <div className="bg-primary/10 rounded-lg mb-3">
                       <div className="text-lg text-primary/80">
-                        <b>FWG PT(₹349)</b>
+                        <b>FWG Online Weight Loss Program (₹349)</b>
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <span className="text-primary">✅</span>
-                    <span className="text-muted-foreground">Yes</span>
+                    <span className="text-muted-foreground">Yes(Live on Zoom)</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <span className="text-primary">✅</span>
+                    <span className="text-muted-foreground">Every Session</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <span className="text-primary">✅</span>
@@ -206,7 +218,7 @@ const ServicesShowcase = () => {
                   </div>
                   <div className="flex items-center space-x-3">
                     <span className="text-primary">✅</span>
-                    <span className="text-muted-foreground">Yes</span>
+                    <span className="text-muted-foreground">Proven Transformations</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     {/* <span className="text-primary">✅</span> */}

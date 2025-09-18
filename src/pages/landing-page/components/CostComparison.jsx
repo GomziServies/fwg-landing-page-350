@@ -372,7 +372,7 @@ const CostComparison = () => {
               <div className="bg-white rounded-xl p-6 shadow-card">
                 <div className="text-3xl mb-4">🏋</div>
                 <h4 className="font-semibold text-foreground mb-2">
-                  Daily Live PT Sessions
+                  Daily Live Weight loss Sessions
                 </h4>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-card">
@@ -422,7 +422,7 @@ const CostComparison = () => {
               onClick={handleOpenModal}
               className="text-lg bg-warning px-8 py-4"
             >
-              Join FWG PT for Just ₹349/Month
+              Join FWG Weight Loss Program ₹349/Month
             </Button>
           </div>
         </div>

@@ -212,7 +212,7 @@ const BookingForms = () => {
         <div className="text-center mt-12">
           <div className="bg-white rounded-3xl p-8 shadow-card max-w-3xl mx-auto">
             <p className="text-lg text-left text-muted-foreground mb-6">
-              <b>✅Certified & Experienced Trainers -</b> Every FWG trainer is fully certified and has years of practical experience. You're not just following random YouTube workouts - you're training LIVE with professionals who know how to guide, motivate, and correct you in real time. 
+                <b>✅Certified & Experienced Weight Loss Coaches -</b>  Every FWG weight loss coach is fully certified and has years of practical experience in helping people achieve sustainable fat loss. You're not just following random YouTube diet tips or workout videos - you're on a LIVE transformation journey with professionals who know how to guide, motivate, and correct you in real time for the best results. 
             </p>
             <p className="text-lg text-left text-muted-foreground mb-6">
               <b>✅100% Secure Payments -</b> We use Razorpay & UPI trusted gateways for all transactions. Your data and money are completely safe with industry-standard encryption and fraud protection. 

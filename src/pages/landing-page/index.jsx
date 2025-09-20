@@ -10,6 +10,10 @@ import TrustBadges from './components/TrustBadges';
 import FAQSection from './components/FAQSection';
 import BookingForms from './components/BookingForms';
 import Footer from './components/Footer';
+import WeaightLossSection from './components/WeightLossSection'
+import SocialProofSection from './components/SocialProofSection';
+import CoachCredentialsSection from './components/CoachCredentialsSection';
+import VideoTestimonials from './components/VideoTestimonials';
 
 const LandingPage = () => {
   return (
@@ -21,8 +25,12 @@ const LandingPage = () => {
         <CostComparison />
         <ImpactMetrics />
         <TestimonialsSlider />
+        <VideoTestimonials />
         <ServicesShowcase />
         {/* <HowItWorks /> */}
+        {/* <WeaightLossSection /> */}
+        <SocialProofSection />
+        <CoachCredentialsSection/>
         <FAQSection />
         <BookingForms />
       </main>

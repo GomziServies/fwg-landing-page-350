@@ -119,6 +119,46 @@ const HeroSection = () => {
         return true;
     };
 
+    const [timeLeft, setTimeLeft] = useState({
+        days: 2,
+        hours: 11,
+        minutes: 45,
+        seconds: 0,
+    });
+
+    // Countdown timer effect
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTimeLeft((prevTime) => {
+                let { days, hours, minutes, seconds } = prevTime;
+
+                if (seconds > 0) {
+                    seconds--;
+                } else if (minutes > 0) {
+                    minutes--;
+                    seconds = 59;
+                } else if (hours > 0) {
+                    hours--;
+                    minutes = 59;
+                    seconds = 59;
+                } else if (days > 0) {
+                    days--;
+                    hours = 23;
+                    minutes = 59;
+                    seconds = 59;
+                }
+
+                return { days, hours, minutes, seconds };
+            });
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, []);
+
+    const formatTime = (time) => {
+        return time.toString().padStart(2, "0");
+    };
+
     const handlePayment = async () => {
         if (!validateForm()) return;
 
@@ -211,69 +251,117 @@ const HeroSection = () => {
             <section className="bg-gradient-to-br from-white via-gray-50 to-green-50 flex items-center">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 lg:py-20">
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                        {/* Left Side - Transformation Carousel */ }
-
-                        {/* Right Side - Hero Content */ }
-
-                        <div className="text-center lg:text-left">
+                        {/* Left Side - Hero Content (First on all devices) */}
+                        <div className="text-center lg:text-left order-1">
                             <div className="mb-6">
+                                <div className="inline-flex items-center bg-green-50 border border-green-200 rounded-full px-4 py-2 mb-4">
+                                    <span className="text-green-600 text-sm font-medium">
+                                        🎯 India’s #1 Daily LIVE Online Weight Loss Program
+                                    </span>
+                                </div>
                                 <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-6">
-                                    Daily Live Personal Training at Just
-                                    <span className="text-primary">
-                                        { " " }
-                                        ₹349/Month 🚀
+                                    Transform Your Body with at
+                                    <span className="text-primary block mt-2">
+                                        just ₹349/Month
                                     </span>
                                 </h1>
-                                <h2 className="text-xl lg:text-2xl text-muted-foreground font-medium mb-8">
-                                    Certified Trainers. Real-Time Guidance.
-                                    Anytime, anywhere
-                                </h2>
+                                <ul className="list-disc list-inside text-xs lg:text-sm text-muted-foreground font-medium mb-8 space-y-2">
+                                    <li>Forget Expensive Gyms & Boring Diets.</li>
+                                    <li>This Is The Easiest, Most Affordable Way To Lose Weight From Home.</li>
+                                    <li>Guaranteed Results.</li>
+                                </ul>
                             </div>
-
-                            {/* <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Get proven results from <strong className="text-primary">16,000+ transformations</strong> with India-specific diet plans, 
-              flexible time zones, and coaching that understands your lifestyle abroad.
-            </p> */}
-
-                            {/* Key Benefits */ }
-                            <div className="gap-4 mb-8">
-                                <div className="flex items-center space-x-3 my-3">
-                                    <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center">
-                                        <span className="text-white text-xs">
-                                            ✓
-                                        </span>
-                                    </div>
-                                    <span className="text-foreground">
-                                        Trainer coaching live on Zoom screen
-                                        mock-up
-                                    </span>
+                            {/* Countdown Timer */}
+                            <div className="max-w-xl mx-auto mb-6">
+                                <div className="text-center mb-6">
+                                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                                        Registration Closing In:
+                                    </h3>
                                 </div>
-                                <div className="flex items-center space-x-3 my-3">
-                                    <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center">
-                                        <span className="text-white text-xs">
-                                            ✓
-                                        </span>
+
+                                <div className="bg-white rounded-2xl shadow-elevation p-6 md:p-8 border border-gray-200">
+                                    <div className="grid grid-cols-4 gap-2 md:gap-4">
+                                        {/* Days */}
+                                        <div className="text-center">
+                                            <div className="bg-gradient-to-br from-primary to-primary/80 text-white rounded-lg p-3 md:p-4 mb-2">
+                                                <div className="text-2xl md:text-4xl font-bold">
+                                                    {formatTime(timeLeft.days)}
+                                                </div>
+                                            </div>
+                                            <div className="text-sm md:text-base font-medium text-muted-foreground">
+                                                Days
+                                            </div>
+                                        </div>
+
+                                        {/* Hours */}
+                                        <div className="text-center">
+                                            <div className="bg-gradient-to-br from-success to-success/80 text-white rounded-lg p-3 md:p-4 mb-2">
+                                                <div className="text-2xl md:text-4xl font-bold">
+                                                    {formatTime(timeLeft.hours)}
+                                                </div>
+                                            </div>
+                                            <div className="text-sm md:text-base font-medium text-muted-foreground">
+                                                Hours
+                                            </div>
+                                        </div>
+
+                                        {/* Minutes */}
+                                        <div className="text-center">
+                                            <div className="bg-gradient-to-br from-warning to-warning/80 text-white rounded-lg p-3 md:p-4 mb-2">
+                                                <div className="text-2xl md:text-4xl font-bold">
+                                                    {formatTime(
+                                                        timeLeft.minutes
+                                                    )}
+                                                </div>
+                                            </div>
+                                            <div className="text-sm md:text-base font-medium text-muted-foreground">
+                                                Minutes
+                                            </div>
+                                        </div>
+
+                                        {/* Seconds */}
+                                        <div className="text-center">
+                                            <div className="bg-gradient-to-br from-error to-error/80 text-white rounded-lg p-3 md:p-4 mb-2">
+                                                <div className="text-2xl md:text-4xl font-bold">
+                                                    {formatTime(
+                                                        timeLeft.seconds
+                                                    )}
+                                                </div>
+                                            </div>
+                                            <div className="text-sm md:text-base font-medium text-muted-foreground">
+                                                Seconds
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span className="text-foreground">
-                                        Fit people working out from home
-                                    </span>
                                 </div>
                             </div>
+                            {/* CTA Section */}
+                            <div className="space-y-6">
+                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                    <Button
+                                        variant="default"
+                                        size="lg"
+                                        onClick={handleBookDemo}
+                                        className="text-lg px-8 py-4 bg-primary hover:bg-primary/90 shadow-elevation"
+                                    >
+                                        🚀 Start Your Transformation Today
+                                    </Button>
+                                </div>
 
-                            {/* CTA Buttons */ }
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                                <Button
-                                    variant="default"
-                                    size="lg"
-                                    onClick={ handleBookDemo }
-                                    iconPosition="left"
-                                    className="text-lg px-8 py-4"
-                                >
-                                    Join Now - Start Training Today
-                                </Button>
+                                {/* Urgency indicator */}
+                                {/* <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-orange-200 rounded-lg p-4">
+                                    <div className="flex items-center justify-center space-x-2">
+                                        <span className="text-orange-600">
+                                            ⚡
+                                        </span>
+                                        <p className="text-orange-700 font-medium text-sm">
+                                            Only 50 spots left this month! Join
+                                            500+ active members
+                                        </p>
+                                    </div>
+                                </div> */}
                             </div>
-
-                            {/* Trust Indicators */ }
+                            {/* Trust Indicators */}
                             <div className="flex items-center justify-center lg:justify-start space-x-6 mt-8 text-sm text-muted-foreground">
                                 <div className="flex items-center space-x-2">
                                     <span className="text-primary">
@@ -282,63 +370,110 @@ const HeroSection = () => {
                                     <span>4.9/5 Rating</span>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                    <span className="text-primary">🔒</span>
+                                    <span className="text-success">🔒</span>
                                     <span>Secure Payment</span>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                    <span className="text-secondary">💯</span>
+                                    <span>Money Back Guarantee</span>
                                 </div>
                             </div>
                         </div>
-                        <div className="relative">
-                            <div className="bg-white rounded-2xl shadow-elevation p-6 lg:p-8">
+
+                        {/* Right Side - Enhanced Transformation Showcase (Second on all devices) */}
+                        <div className="relative order-2">
+                            {/* Enhanced Transformation Carousel */}
+                            <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-elevation p-6 lg:p-8 border border-gray-100">
                                 <div className="relative overflow-hidden rounded-xl">
                                     <div
                                         className="flex transition-transform duration-500 ease-in-out"
-                                        style={ {
+                                        style={{
                                             transform: `translateX(-${currentSlide * 100
                                                 }%)`,
-                                        } }
+                                        }}
                                     >
-                                        { transformations?.map(
+                                        {transformations?.map(
                                             (transformation) => (
                                                 <div
-                                                    key={ transformation?.id }
+                                                    key={transformation?.id}
                                                     className="w-full flex-shrink-0"
                                                 >
-                                                    <div className="gap-4">
-                                                        <div className="text-center">
-                                                            <div className="relative overflow-hidden rounded-lg mb-3">
-                                                                <Image
-                                                                    src={
-                                                                        transformation?.before
+                                                    <div className="text-center">
+                                                        <div className="relative overflow-hidden rounded-lg mb-4 group">
+                                                            <Image
+                                                                src={
+                                                                    transformation?.before
+                                                                }
+                                                                alt={`${transformation?.name} transformation`}
+                                                                className="w-full  object-cover transition-transform duration-300"
+                                                            />
+                                                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                                            <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                                <p className="font-semibold">
+                                                                    {
+                                                                        transformation?.name
                                                                     }
-                                                                    alt={ `${transformation?.name} before transformation` }
-                                                                    className="w-full h-full object-cover"
-                                                                />
+                                                                </p>
+                                                                <p className="text-sm">
+                                                                    Amazing
+                                                                    transformation!
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             )
-                                        ) }
+                                        )}
                                     </div>
                                 </div>
 
-                                {/* Carousel Indicators */ }
+                                {/* Enhanced Carousel Indicators */}
                                 <div className="flex justify-center space-x-2 mt-6">
-                                    { transformations?.map((_, index) => (
+                                    {transformations?.map((_, index) => (
                                         <button
-                                            key={ index }
-                                            onClick={ () => {
+                                            key={index}
+                                            onClick={() => {
                                                 setCurrentSlide(index);
                                                 setIsPaused(true);
-                                                // Resume after 10 seconds of inactivity
-                                                setTimeout(() => setIsPaused(false), 10000);
-                                            } }
-                                            className={ `w-2 h-2 rounded-full transition-colors ${index === currentSlide
-                                                    ? "bg-primary"
-                                                    : "bg-gray-300"
-                                                }` }
+                                                setTimeout(
+                                                    () => setIsPaused(false),
+                                                    10000
+                                                );
+                                            }}
+                                            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                                                ? "bg-primary scale-110 shadow-md"
+                                                : "bg-gray-300 hover:bg-gray-400"
+                                                }`}
                                         />
-                                    )) }
+                                    ))}
+                                </div>
+
+                                {/* Additional stats */}
+                                <div className="mt-6 grid grid-cols-3 gap-4 text-center">
+                                    <div className="p-3 bg-green-50 rounded-lg">
+                                        <p className="text-lg font-bold text-primary">
+                                            16,000+
+                                        </p>
+                                        <p className="text-xs text-muted-foreground">
+                                            Transformations
+                                        </p>
+                                    </div>
+                                    <div className="p-3 bg-blue-50 rounded-lg">
+                                        <p className="text-lg font-bold text-secondary">
+                                            4.9⭐
+                                        </p>
+                                        <p className="text-xs text-muted-foreground">
+                                            Average Rating
+                                        </p>
+                                    </div>
+                                    <div className="p-3 bg-orange-50 rounded-lg">
+                                        <p className="text-lg font-bold text-accent">
+                                            90%
+                                        </p>
+                                        <p className="text-xs text-muted-foreground">
+                                            Success Rate
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -347,12 +482,12 @@ const HeroSection = () => {
             </section>
 
             <Modal
-                isOpen={ isModalOpen }
-                onClose={ () => setIsModalOpen(false) }
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
                 title="Start Your Fitness Journey"
             >
                 <div className="grid grid-cols-1  md:grid-cols-3 gap-6 items-start">
-                    {/* Left column - visual */ }
+                    {/* Left column - visual */}
                     <div className="md:col-span-1 flex flex-col items-center bg-gradient-to-b from-green-50 to-green-100 rounded-2xl p-6 shadow-sm">
                         <div className="bg-white rounded-full p-4 shadow-md">
                             <img
@@ -370,7 +505,7 @@ const HeroSection = () => {
                         </p>
                     </div>
 
-                    {/* Right column - form */ }
+                    {/* Right column - form */}
                     <div className="md:col-span-2 bg-white rounded-2xl shadow-md p-6">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
@@ -379,8 +514,8 @@ const HeroSection = () => {
                                 </label>
                                 <Input
                                     name="name"
-                                    defaultValue={ userDetails.name }
-                                    onBlur={ handleInputChange }
+                                    defaultValue={userDetails.name}
+                                    onBlur={handleInputChange}
                                     placeholder="Enter Your Name"
                                     className="h-11 px-3 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 />
@@ -393,8 +528,8 @@ const HeroSection = () => {
                                 <Input
                                     name="email"
                                     type="email"
-                                    defaultValue={ userDetails.email }
-                                    onBlur={ handleInputChange }
+                                    defaultValue={userDetails.email}
+                                    onBlur={handleInputChange}
                                     placeholder="Enter Your Email"
                                     className="h-11 px-3 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 />
@@ -407,10 +542,10 @@ const HeroSection = () => {
                                 <Input
                                     name="mobile"
                                     type="tel"
-                                    defaultValue={ userDetails.mobile }
-                                    onBlur={ handleInputChange }
+                                    defaultValue={userDetails.mobile}
+                                    onBlur={handleInputChange}
                                     placeholder="Enter Your Mobile Number"
-                                    maxLength={ 10 }
+                                    maxLength={10}
                                     pattern="[0-9]*"
                                     inputMode="numeric"
                                     className="h-11 px-3 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500"
@@ -423,13 +558,13 @@ const HeroSection = () => {
                                 </label>
                                 <Select
                                     name="goal"
-                                    value={ userDetails.goal }
-                                    onChange={ (value) =>
+                                    value={userDetails.goal}
+                                    onChange={(value) =>
                                         handleInputChange({
                                             target: { name: "goal", value },
                                         })
                                     }
-                                    options={ goals }
+                                    options={goals}
                                     inputClassName="h-11 px-3 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 />
                             </div>
@@ -440,8 +575,8 @@ const HeroSection = () => {
                                 </label>
                                 <Select
                                     name="experience"
-                                    value={ userDetails.experience }
-                                    onChange={ (value) =>
+                                    value={userDetails.experience}
+                                    onChange={(value) =>
                                         handleInputChange({
                                             target: {
                                                 name: "experience",
@@ -449,7 +584,7 @@ const HeroSection = () => {
                                             },
                                         })
                                     }
-                                    options={ experiences }
+                                    options={experiences}
                                     inputClassName="h-11 px-3 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 />
                             </div>
@@ -460,8 +595,8 @@ const HeroSection = () => {
                                 </label>
                                 <Select
                                     name="preferredTimeSlot"
-                                    value={ userDetails.preferredTimeSlot }
-                                    onChange={ (value) =>
+                                    value={userDetails.preferredTimeSlot}
+                                    onChange={(value) =>
                                         handleInputChange({
                                             target: {
                                                 name: "preferredTimeSlot",
@@ -469,7 +604,7 @@ const HeroSection = () => {
                                             },
                                         })
                                     }
-                                    options={ timeSlots }
+                                    options={timeSlots}
                                     inputClassName="h-11 px-3 rounded-lg border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 />
                             </div>
@@ -480,11 +615,11 @@ const HeroSection = () => {
                                 🔒 Secure payment • 30-day support
                             </p>
                             <Button
-                                onClick={ handlePayment }
-                                disabled={ loading }
+                                onClick={handlePayment}
+                                disabled={loading}
                                 className="px-6 py-2 rounded-xl bg-green-600 hover:bg-green-700 text-white font-medium shadow-md transition"
                             >
-                                { loading ? "Processing..." : "Pay ₹349 / month" }
+                                {loading ? "Processing..." : "Pay ₹349 / month"}
                             </Button>
                         </div>
                     </div>
@@ -492,8 +627,8 @@ const HeroSection = () => {
             </Modal>
 
             <Modal
-                isOpen={ isThankYouModalOpen }
-                onClose={ () => setIsThankYouModalOpen(false) }
+                isOpen={isThankYouModalOpen}
+                onClose={() => setIsThankYouModalOpen(false)}
                 title="Thank you!"
             >
                 <div className="flex flex-col items-center text-center gap-4">
@@ -519,7 +654,7 @@ const HeroSection = () => {
                         your first session and share onboarding details.
                     </p>
                     <div className="w-full flex justify-center">
-                        <Button onClick={ () => setIsThankYouModalOpen(false) }>
+                        <Button onClick={() => setIsThankYouModalOpen(false)}>
                             Close
                         </Button>
                     </div>

@@ -23,7 +23,7 @@ const CoachCredentialsSection = () => {
             role: "Clinical Health & Recovery Coach",
             image: "/assets/trainer/t-4.jpg", // Replace with actual image path
             experience: "5+ Years Experience",
-            clientsCount: "600+ Clients Trained",
+            clientsCount: "450+ Clients Trained",
             specializations: [
                 "Diabetes Management",
                 "PCOD/PCOS",
@@ -33,7 +33,7 @@ const CoachCredentialsSection = () => {
                 "Diabetes Educator",
                 "Clinical Exercise Physiologist",
             ],
-            achievements: "600+ Health Recoveries",
+            achievements: "100+ Health Recoveries",
         },
         {
             id: 2,
@@ -41,14 +41,14 @@ const CoachCredentialsSection = () => {
             role: "Weight Loss & Nutrition Expert",
             image: "/assets/trainer/t-2.jpg", // Replace with actual image path
             experience: "3+ Years Experience",
-            clientsCount: "800+ Clients Trained",
+            clientsCount: "100+ Clients Trained",
             specializations: [
                 "Weight Loss",
                 "Nutrition Planning",
                 "Metabolic Training",
             ],
             certifications: ["Clinical Nutritionist", "ACE Certified"],
-            achievements: "800+ Weight Loss Success Stories",
+            achievements: "100+ Weight Loss Success Stories",
         },
         {
             id: 3,
@@ -56,7 +56,7 @@ const CoachCredentialsSection = () => {
             role: "Clinical Health & Recovery Coach",
             image: "/assets/trainer/t-3.jpg", // Replace with actual image path
             experience: "3+ Years Experience",
-            clientsCount: "600+ Clients Trained",
+            clientsCount: "100+ Clients Trained",
             specializations: [
                 "Diabetes Management",
                 "PCOD/PCOS",
@@ -66,9 +66,9 @@ const CoachCredentialsSection = () => {
                 "Diabetes Educator",
                 "Clinical Exercise Physiologist",
             ],
-            achievements: "600+ Health Recoveries",
+            achievements: "70+ Health Recoveries",
         },
-        
+
     ];
 
     return (
@@ -76,15 +76,12 @@ const CoachCredentialsSection = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header Section */}
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-                        <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                        Coach Credentials
-                    </div>
-
-                    <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6 leading-tight">
-                        <span className="text-primary">Certified Coaches</span>{" "}
-                        • <span className="text-success">Global Expertise</span>{" "}
-                        • <span className="text-secondary">Proven Results</span>
+                    <h2 className="text-3xl lg:text-4xl xl:text-4xl font-bold text-foreground mb-6 leading-tight">
+                        <span>Certified Coaches</span>
+                        <span className="hidden lg:inline"> • </span>
+                        <span>Global Expertise</span>
+                        <span className="hidden lg:inline"> • </span>
+                        <span>Proven Results</span>
                     </h2>
 
                     <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -163,7 +160,7 @@ const CoachCredentialsSection = () => {
 
                 {/* Bottom Stats */}
                 <div className="mt-16 bg-gradient-to-r from-primary/5 to-success/5 rounded-2xl p-8">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                         <div>
                             <div className="text-3xl font-bold text-primary mb-2">
                                 4+
@@ -195,17 +192,6 @@ const CoachCredentialsSection = () => {
                             </div>
                             <div className="text-muted-foreground text-sm">
                                 By Our Team
-                            </div>
-                        </div>
-                        <div>
-                            <div className="text-3xl font-bold text-warning mb-2">
-                                15+
-                            </div>
-                            <div className="text-foreground font-medium mb-1">
-                                Certifications
-                            </div>
-                            <div className="text-muted-foreground text-sm">
-                                Global Standards
                             </div>
                         </div>
                     </div>

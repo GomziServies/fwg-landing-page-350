@@ -158,7 +158,7 @@ const ServicesShowcase = () => {
 
           {/* FWG Card */}
           <div className="bg-primary/5 rounded-2xl p-6 border-2 border-primary relative overflow-hidden">
-            <div className="absolute -top-2 -right-2 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold transform rotate-12">
+            <div className="absolute -top-0 -right-2 bg-primary text-white px-4 py-2 rounded-bl-full text-xs font-bold transform rotate-15">
               BEST VALUE!
             </div>
 
@@ -196,15 +196,6 @@ const ServicesShowcase = () => {
                 <span className="text-sm text-gray-700">Results Guarantee</span>
                 <span className="text-primary font-bold">✅ Proven Success</span>
               </div>
-            </div>
-
-            <div className="mt-6">
-              <Button
-                className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3"
-                onClick={() => handleBookService('FWG Weight Loss')}
-              >
-                Join FWG Program - ₹349/month
-              </Button>
             </div>
           </div>
         </div>

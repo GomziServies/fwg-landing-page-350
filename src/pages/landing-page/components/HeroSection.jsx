@@ -248,87 +248,87 @@ const HeroSection = () => {
                     className="h-20 w-auto mx-auto"
                 />
             </div>
-            <section className="bg-gradient-to-br from-white via-gray-50 to-green-50 flex items-center">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 lg:py-20">
-                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <section className="bg-gradient-to-br from-white via-gray-50 to-green-50 flex items-center min-h-screen">
+                <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 lg:py-20">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-16 items-center">
                         {/* Left Side - Hero Content (First on all devices) */}
-                        <div className="text-center lg:text-left order-1">
+                        <div className="text-center lg:text-left order-1 w-full">
                             <div className="mb-6">
                                 <div className="inline-flex items-center bg-green-50 border border-green-200 rounded-full px-4 py-2 mb-4">
                                     <span className="text-green-600 text-sm font-medium">
                                         🎯 India’s #1 Daily LIVE Online Weight Loss Program
                                     </span>
                                 </div>
-                                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-6">
+                                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
                                     Transform Your Body with at
-                                    <span className="text-primary block mt-2">
+                                    <span className="text-primary block mt-1 sm:mt-2">
                                         just ₹349/Month
                                     </span>
                                 </h1>
-                                <ul className="list-disc list-inside text-xs lg:text-sm text-muted-foreground font-medium mb-8 space-y-2">
+                                <ul className="list-disc list-inside text-xs sm:text-sm lg:text-sm text-muted-foreground font-medium mb-6 sm:mb-8 space-y-1 sm:space-y-2 px-4 sm:px-0">
                                     <li>Forget Expensive Gyms & Boring Diets.</li>
                                     <li>This Is The Easiest, Most Affordable Way To Lose Weight From Home.</li>
                                     <li>Guaranteed Results.</li>
                                 </ul>
                             </div>
                             {/* Countdown Timer */}
-                            <div className="max-w-xl mx-auto mb-6">
-                                <div className="text-center mb-6">
-                                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                            <div className="max-w-xl mx-auto mb-4 sm:mb-6">
+                                <div className="text-center mb-4 sm:mb-6">
+                                    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-2">
                                         Registration Closing In:
                                     </h3>
                                 </div>
 
-                                <div className="bg-white rounded-2xl shadow-elevation p-6 md:p-8 border border-gray-200">
-                                    <div className="grid grid-cols-4 gap-2 md:gap-4">
+                                <div className="bg-white rounded-xl sm:rounded-2xl shadow-elevation p-3 sm:p-4 md:p-6 lg:p-8 border border-gray-200">
+                                    <div className="grid grid-cols-4 gap-1 sm:gap-2 md:gap-4">
                                         {/* Days */}
                                         <div className="text-center">
-                                            <div className="bg-gradient-to-br from-primary to-primary/80 text-white rounded-lg p-3 md:p-4 mb-2">
-                                                <div className="text-2xl md:text-4xl font-bold">
+                                            <div className="bg-gradient-to-br from-primary to-primary/80 text-white rounded-md sm:rounded-lg p-2 sm:p-3 md:p-4 mb-1 sm:mb-2">
+                                                <div className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold">
                                                     {formatTime(timeLeft.days)}
                                                 </div>
                                             </div>
-                                            <div className="text-sm md:text-base font-medium text-muted-foreground">
+                                            <div className="text-xs sm:text-sm md:text-base font-medium text-muted-foreground">
                                                 Days
                                             </div>
                                         </div>
 
                                         {/* Hours */}
                                         <div className="text-center">
-                                            <div className="bg-gradient-to-br from-success to-success/80 text-white rounded-lg p-3 md:p-4 mb-2">
-                                                <div className="text-2xl md:text-4xl font-bold">
+                                            <div className="bg-gradient-to-br from-success to-success/80 text-white rounded-md sm:rounded-lg p-2 sm:p-3 md:p-4 mb-1 sm:mb-2">
+                                                <div className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold">
                                                     {formatTime(timeLeft.hours)}
                                                 </div>
                                             </div>
-                                            <div className="text-sm md:text-base font-medium text-muted-foreground">
+                                            <div className="text-xs sm:text-sm md:text-base font-medium text-muted-foreground">
                                                 Hours
                                             </div>
                                         </div>
 
                                         {/* Minutes */}
                                         <div className="text-center">
-                                            <div className="bg-gradient-to-br from-warning to-warning/80 text-white rounded-lg p-3 md:p-4 mb-2">
-                                                <div className="text-2xl md:text-4xl font-bold">
+                                            <div className="bg-gradient-to-br from-warning to-warning/80 text-white rounded-md sm:rounded-lg p-2 sm:p-3 md:p-4 mb-1 sm:mb-2">
+                                                <div className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold">
                                                     {formatTime(
                                                         timeLeft.minutes
                                                     )}
                                                 </div>
                                             </div>
-                                            <div className="text-sm md:text-base font-medium text-muted-foreground">
+                                            <div className="text-xs sm:text-sm md:text-base font-medium text-muted-foreground">
                                                 Minutes
                                             </div>
                                         </div>
 
                                         {/* Seconds */}
                                         <div className="text-center">
-                                            <div className="bg-gradient-to-br from-error to-error/80 text-white rounded-lg p-3 md:p-4 mb-2">
-                                                <div className="text-2xl md:text-4xl font-bold">
+                                            <div className="bg-gradient-to-br from-error to-error/80 text-white rounded-md sm:rounded-lg p-2 sm:p-3 md:p-4 mb-1 sm:mb-2">
+                                                <div className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold">
                                                     {formatTime(
                                                         timeLeft.seconds
                                                     )}
                                                 </div>
                                             </div>
-                                            <div className="text-sm md:text-base font-medium text-muted-foreground">
+                                            <div className="text-xs sm:text-sm md:text-base font-medium text-muted-foreground">
                                                 Seconds
                                             </div>
                                         </div>
@@ -336,13 +336,13 @@ const HeroSection = () => {
                                 </div>
                             </div>
                             {/* CTA Section */}
-                            <div className="space-y-6">
-                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <div className="space-y-4 sm:space-y-6">
+                                <div className="flex flex-col gap-3 sm:gap-4 justify-center px-2 sm:px-0">
                                     <Button
                                         variant="default"
                                         size="lg"
                                         onClick={handleBookDemo}
-                                        className="text-lg px-8 py-4 bg-primary hover:bg-primary/90 shadow-elevation"
+                                        className="text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 bg-primary hover:bg-primary/90 shadow-elevation w-full sm:w-auto"
                                     >
                                         🚀 Start Your Transformation Today
                                     </Button>
@@ -362,18 +362,18 @@ const HeroSection = () => {
                                 </div> */}
                             </div>
                             {/* Trust Indicators */}
-                            <div className="flex items-center justify-center lg:justify-start space-x-6 mt-8 text-sm text-muted-foreground">
-                                <div className="flex items-center space-x-2">
-                                    <span className="text-primary">
+                            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4 lg:gap-6 mt-6 sm:mt-8 text-xs sm:text-sm text-muted-foreground">
+                                <div className="flex items-center space-x-1 sm:space-x-2">
+                                    <span className="text-primary text-xs sm:text-sm">
                                         ⭐⭐⭐⭐⭐
                                     </span>
                                     <span>4.9/5 Rating</span>
                                 </div>
-                                <div className="flex items-center space-x-2">
+                                <div className="flex items-center space-x-1 sm:space-x-2">
                                     <span className="text-success">🔒</span>
                                     <span>Secure Payment</span>
                                 </div>
-                                <div className="flex items-center space-x-2">
+                                <div className="flex items-center space-x-1 sm:space-x-2">
                                     <span className="text-secondary">💯</span>
                                     <span>Money Back Guarantee</span>
                                 </div>
@@ -381,9 +381,9 @@ const HeroSection = () => {
                         </div>
 
                         {/* Right Side - Enhanced Transformation Showcase (Second on all devices) */}
-                        <div className="relative order-2">
+                        <div className="relative order-2 w-full">
                             {/* Enhanced Transformation Carousel */}
-                            <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-elevation p-6 lg:p-8 border border-gray-100">
+                            <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl sm:rounded-2xl shadow-elevation p-3 sm:p-4 md:p-6 lg:p-8 border border-gray-100">
                                 <div className="relative overflow-hidden rounded-xl">
                                     <div
                                         className="flex transition-transform duration-500 ease-in-out"
@@ -428,7 +428,7 @@ const HeroSection = () => {
                                 </div>
 
                                 {/* Enhanced Carousel Indicators */}
-                                <div className="flex justify-center space-x-2 mt-6">
+                                <div className="flex justify-center space-x-1 sm:space-x-2 mt-4 sm:mt-6">
                                     {transformations?.map((_, index) => (
                                         <button
                                             key={index}
@@ -440,7 +440,7 @@ const HeroSection = () => {
                                                     10000
                                                 );
                                             }}
-                                            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                                            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${index === currentSlide
                                                 ? "bg-primary scale-110 shadow-md"
                                                 : "bg-gray-300 hover:bg-gray-400"
                                                 }`}
@@ -449,25 +449,25 @@ const HeroSection = () => {
                                 </div>
 
                                 {/* Additional stats */}
-                                <div className="mt-6 grid grid-cols-3 gap-4 text-center">
-                                    <div className="p-3 bg-green-50 rounded-lg">
-                                        <p className="text-lg font-bold text-primary">
+                                <div className="mt-4 sm:mt-6 grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 text-center">
+                                    <div className="p-2 sm:p-3 bg-green-50 rounded-md sm:rounded-lg">
+                                        <p className="text-sm sm:text-base lg:text-lg font-bold text-primary">
                                             16,000+
                                         </p>
                                         <p className="text-xs text-muted-foreground">
                                             Transformations
                                         </p>
                                     </div>
-                                    <div className="p-3 bg-blue-50 rounded-lg">
-                                        <p className="text-lg font-bold text-secondary">
+                                    <div className="p-2 sm:p-3 bg-blue-50 rounded-md sm:rounded-lg">
+                                        <p className="text-sm sm:text-base lg:text-lg font-bold text-secondary">
                                             4.9⭐
                                         </p>
                                         <p className="text-xs text-muted-foreground">
                                             Average Rating
                                         </p>
                                     </div>
-                                    <div className="p-3 bg-orange-50 rounded-lg">
-                                        <p className="text-lg font-bold text-accent">
+                                    <div className="p-2 sm:p-3 bg-orange-50 rounded-md sm:rounded-lg">
+                                        <p className="text-sm sm:text-base lg:text-lg font-bold text-accent">
                                             90%
                                         </p>
                                         <p className="text-xs text-muted-foreground">
